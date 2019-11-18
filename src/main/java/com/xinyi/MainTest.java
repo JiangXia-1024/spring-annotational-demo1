@@ -19,12 +19,11 @@ public class MainTest {
 		ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MyConfig.class);
 		Person person = applicationContext.getBean(Person.class);
 		System.out.println(person);
-		//返回类型
+//		//返回类型
 		String[] persontype = applicationContext.getBeanNamesForType(Person.class);
 		for(String nameString :persontype) {
 			System.out.println(nameString);
 		}
-		
 	}
 
 }
