@@ -15,6 +15,4 @@
 	   		<property name="name" value="新一"></property>
 	   		<property name="age" value="18"></property>
 	   </bean> 
-
-
 </beans>
