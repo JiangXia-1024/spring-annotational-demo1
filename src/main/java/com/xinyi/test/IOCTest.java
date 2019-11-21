@@ -24,7 +24,7 @@ public class IOCTest {
 //		for(String string : strings) {
 //			System.out.println(string);
 //		}
-		//默认单实例
+		System.out.println("IOC容器创建完成");
 		Object person1 = applicationContext.getBean("person");
 		Object person2 = applicationContext.getBean("person");
 		System.out.println(person1 == person2);
