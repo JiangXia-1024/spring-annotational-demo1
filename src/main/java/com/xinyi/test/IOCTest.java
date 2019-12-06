@@ -44,4 +44,19 @@ public class IOCTest {
 		Map<String, Person> persons = applicationContext.getBeansOfType(Person.class);
 		System.out.println(persons);
 	}
+	
+	@Test
+	public void test4() {
+		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MyConfig1.class);
+		String[] names = applicationContext.getBeanDefinitionNames();
+		for(String name:names) {
+			System.out.println(name);
+		}
+		
+		Object beanObject = applicationContext.getBean("roleBean");
+		System.out.println("roleBean的类型是："+beanObject.getClass());
+		
+		Object beanObject1 = applicationContext.getBean("&roleBean");
+		System.out.println("获取roleBean本身："+beanObject1.getClass());
+	}
 }
