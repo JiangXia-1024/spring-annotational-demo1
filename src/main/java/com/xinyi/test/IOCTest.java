@@ -9,6 +9,7 @@ import com.xinyi.bean.Person;
 import com.xinyi.bean.Role;
 import com.xinyi.config.MyConfig;
 import com.xinyi.config.MyConfig1;
+import com.xinyi.config.MyConfig2;
 
 public class IOCTest {
 	@Test
@@ -58,5 +59,16 @@ public class IOCTest {
 		
 		Object beanObject1 = applicationContext.getBean("&roleBean");
 		System.out.println("获取roleBean本身："+beanObject1.getClass());
+	}
+	
+	//测试声明周期
+	@Test
+	public void test5() {
+		//创建ioc容器
+		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MyConfig2.class);
+		System.out.println("IOC容器创建完成");
+		
+		//关闭ioc容器
+		applicationContext.close();
 	}
 }

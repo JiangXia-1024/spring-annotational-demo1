@@ -1,5 +1,14 @@
 package com.xinyi.config;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+
+import com.xinyi.bean.Fruit;
+import com.xinyi.bean.Fruit01;
+import com.xinyi.bean.Fruit02;
+import com.xinyi.bean.MyBeanPostProcessor;
+
 /**
  * 
  * @author： xinyi、
@@ -9,12 +18,38 @@ package com.xinyi.config;
  * 	IOC容器管理Bean的声明周期
  * 	可以自定义初始化和销毁方法
  * 	容器在bean进行到当前声明周期的时候调用自定义的初始化和销毁方法
- * 
+ *  
  *  配置文件中的init-method 和destroy-method
  *  
  *  1)、指定初始化和销毁方法：
- *  	指定init-method 和 destroy-method
- */
-public class MyConfig2 {
+ *  	@Bean注解指定init-method 和 destroy-method
+ *  
+ *  	构造（创建对象）：
+ *  	单实例：在容器创建的时候创建对象
+ *  	多实例：在每次获取对象的时候才创建对象
+ */		
 
+@Configuration
+public class MyConfig2 {
+	@Scope("PROTOTYPE")
+	@Bean(initMethod = "init",destroyMethod = "destroy")
+	public Fruit fruit() {
+		return new Fruit();
+	}
+	
+	
+	@Bean
+	public Fruit01 fruit01() {
+		return new Fruit01();
+	}
+	
+	@Bean
+	public Fruit02 fruit02() {
+		return new Fruit02();
+	}
+	
+	@Bean
+	public MyBeanPostProcessor myBeanPostProcessor() {
+		return new MyBeanPostProcessor();
+	}
 }

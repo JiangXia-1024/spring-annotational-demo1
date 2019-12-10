@@ -6,6 +6,7 @@ public class Fruit {
 		System.out.println("Fruit被创建");
 	}
 	
+
 	public void init() {
 		System.out.println("Fruit被初始化");
 	}
