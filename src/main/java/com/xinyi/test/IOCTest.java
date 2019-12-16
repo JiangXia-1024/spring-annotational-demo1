@@ -71,4 +71,12 @@ public class IOCTest {
 		//关闭ioc容器
 		applicationContext.close();
 	}
+	
+	//测试属性赋值
+	@Test
+	public void test6() {
+		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MyConfig2.class);
+		Person person = (Person) applicationContext.getBean("person");
+		System.out.println(person);
+	}
 }

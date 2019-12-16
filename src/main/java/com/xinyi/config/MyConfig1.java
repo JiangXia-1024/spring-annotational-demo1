@@ -27,18 +27,18 @@ public class MyConfig1 {
 //	@Conditional(Condition2.class)
 	public Person person() {
 		//System.out.println("IOC容器中注入person实例");
-		return new Person("李青",18);
+		return new Person("李青",18,"瞎子");
 	}
 	
 	//@Conditional(Condition2.class)
 	@Bean("Yasuo")
 	public Person person1() {
-		return new Person("亚索",23);
+		return new Person("亚索",23,"瞎子");
 	}
 	
 	@Bean("Zed")
 	public Person person2() {
-		return new Person("劫",32);
+		return new Person("劫",32,"瞎子");
 	}
 	
 	

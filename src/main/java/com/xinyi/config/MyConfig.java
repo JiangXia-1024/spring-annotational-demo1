@@ -25,6 +25,6 @@ public class MyConfig {
 	//注入person得值
 	@Bean("person222")
 	public Person person111() {
-		return new Person("xinyi、",19);
+		return new Person("xinyi、",19,"中单");
 	}
 }

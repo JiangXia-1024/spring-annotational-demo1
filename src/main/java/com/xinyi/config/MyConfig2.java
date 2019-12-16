@@ -2,12 +2,14 @@ package com.xinyi.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
 
 import com.xinyi.bean.Fruit;
 import com.xinyi.bean.Fruit01;
 import com.xinyi.bean.Fruit02;
 import com.xinyi.bean.MyBeanPostProcessor;
+import com.xinyi.bean.Person;
 
 /**
  * 
@@ -29,6 +31,8 @@ import com.xinyi.bean.MyBeanPostProcessor;
  *  	多实例：在每次获取对象的时候才创建对象
  */		
 
+//使用@PropertySource读取外部配置文件中的k/v保存到运行的环境变量中;加载完外部的配置文件以后使用${}取出配置文件的值
+@PropertySource(value={"classpath:/person.properties"})
 @Configuration
 public class MyConfig2 {
 	@Scope("PROTOTYPE")
@@ -51,5 +55,11 @@ public class MyConfig2 {
 	@Bean
 	public MyBeanPostProcessor myBeanPostProcessor() {
 		return new MyBeanPostProcessor();
+	}
+	
+	@Bean
+	public Person person() {
+		//return new Person("亚索",23,"孤儿玩家");
+		return new Person();
 	}
 }
