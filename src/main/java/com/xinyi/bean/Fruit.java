@@ -1,5 +1,8 @@
 package com.xinyi.bean;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class Fruit {
 
 	public Fruit() {
