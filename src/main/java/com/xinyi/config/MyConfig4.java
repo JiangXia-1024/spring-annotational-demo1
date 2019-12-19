@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.util.StringValueResolver;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 import com.xinyi.bean.Person;
 
 /**
@@ -79,7 +80,7 @@ public class MyConfig4 implements EmbeddedValueResolverAware{
 		return dataSource;
 	}
 
-	@Override
+	
 	public void setEmbeddedValueResolver(StringValueResolver resolver) {
 		// TODO Auto-generated method stub
 		this.valueResolver = resolver;

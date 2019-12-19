@@ -5,6 +5,7 @@ import java.util.Map;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.xinyi.aop.MathCalculator;
 import com.xinyi.bean.Fruit;
 import com.xinyi.bean.People;
 import com.xinyi.bean.Person;
@@ -13,6 +14,7 @@ import com.xinyi.config.MyConfig;
 import com.xinyi.config.MyConfig1;
 import com.xinyi.config.MyConfig2;
 import com.xinyi.config.MyConfig3;
+import com.xinyi.config.MyConfigOfAOP;
 import com.xinyi.controller.MyController;
 import com.xinyi.dao.MyDao;
 import com.xinyi.service.MyService;
@@ -105,6 +107,18 @@ public class IOCTest {
 		System.out.println(fruit);
 		
 		
+		applicationContext.close();
+	}
+	
+	//测试aop
+	@Test
+	public void test8() {
+		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MyConfigOfAOP.class);
+		//1.不要自己创建对象,要用容器中的对象
+//		MathCalculator mathCalculator = new MathCalculator();
+//		mathCalculator.div(1, 2);
+		MathCalculator mathCalculator = applicationContext.getBean(MathCalculator.class);
+		mathCalculator.div(2, 1);
 		applicationContext.close();
 	}
 }

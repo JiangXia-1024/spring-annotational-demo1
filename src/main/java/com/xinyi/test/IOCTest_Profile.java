@@ -1,45 +1,45 @@
-package com.atguigu.test;
-
-import javax.sql.DataSource;
-
-import org.junit.Test;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import com.atguigu.bean.Boss;
-import com.atguigu.bean.Car;
-import com.atguigu.bean.Color;
-import com.atguigu.bean.Red;
-import com.atguigu.bean.Yellow;
-import com.atguigu.config.MainConfigOfProfile;
-import com.atguigu.config.MainConifgOfAutowired;
-import com.atguigu.dao.BookDao;
-import com.atguigu.service.BookService;
-
-public class IOCTest_Profile {
-	
-	//1¡¢Ê¹ÓÃÃüÁîÐÐ¶¯Ì¬²ÎÊý: ÔÚÐéÄâ»ú²ÎÊýÎ»ÖÃ¼ÓÔØ -Dspring.profiles.active=test
-	//2¡¢´úÂëµÄ·½Ê½¼¤»îÄ³ÖÖ»·¾³£»
-	@Test
-	public void test01(){
-		AnnotationConfigApplicationContext applicationContext = 
-				new AnnotationConfigApplicationContext();
-		//1¡¢´´½¨Ò»¸öapplicationContext
-		//2¡¢ÉèÖÃÐèÒª¼¤»îµÄ»·¾³
-		applicationContext.getEnvironment().setActiveProfiles("dev");
-		//3¡¢×¢²áÖ÷ÅäÖÃÀà
-		applicationContext.register(MainConfigOfProfile.class);
-		//4¡¢Æô¶¯Ë¢ÐÂÈÝÆ÷
-		applicationContext.refresh();
-		
-		
-		String[] namesForType = applicationContext.getBeanNamesForType(DataSource.class);
-		for (String string : namesForType) {
-			System.out.println(string);
-		}
-		
-		Yellow bean = applicationContext.getBean(Yellow.class);
-		System.out.println(bean);
-		applicationContext.close();
-	}
-
-}
+//package com.xinyi.test;
+//
+//import javax.sql.DataSource;
+//
+//import org.junit.Test;
+//import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+//
+//import com.atguigu.bean.Boss;
+//import com.atguigu.bean.Car;
+//import com.atguigu.bean.Color;
+//import com.atguigu.bean.Red;
+//import com.atguigu.bean.Yellow;
+//import com.atguigu.config.MainConfigOfProfile;
+//import com.atguigu.config.MainConifgOfAutowired;
+//import com.atguigu.dao.BookDao;
+//import com.atguigu.service.BookService;
+//
+//public class IOCTest_Profile {
+//	
+//	//1ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ã¼ï¿½ï¿½ï¿½ -Dspring.profiles.active=test
+//	//2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½Ê½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½
+////	@Test
+////	public void test01(){
+////		AnnotationConfigApplicationContext applicationContext = 
+////				new AnnotationConfigApplicationContext();
+////		//1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½applicationContext
+////		//2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½
+////		applicationContext.getEnvironment().setActiveProfiles("dev");
+////		//3ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+////		applicationContext.register(MainConfigOfProfile.class);
+////		//4ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+////		applicationContext.refresh();
+////		
+////		
+////		String[] namesForType = applicationContext.getBeanNamesForType(DataSource.class);
+////		for (String string : namesForType) {
+////			System.out.println(string);
+////		}
+////		
+////		Yellow bean = applicationContext.getBean(Yellow.class);
+////		System.out.println(bean);
+////		applicationContext.close();
+////	}
+//
+//}

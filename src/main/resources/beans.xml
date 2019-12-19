@@ -14,5 +14,7 @@
 	   <bean id="Person" class="com.xinyi.bean.Person" init-method="" destroy-method="">
 	   		<property name="name" value="新一"></property>
 	   		<property name="age" value="18"></property>
-	   </bean> 
+	   </bean>
+	  <!--  开启基于注解版的切面功能 -->
+	   <aop:aspectj-autoproxy></aop:aspectj-autoproxy> 
 </beans>
